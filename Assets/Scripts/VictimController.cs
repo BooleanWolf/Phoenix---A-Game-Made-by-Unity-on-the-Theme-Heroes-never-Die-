@@ -29,9 +29,21 @@ public class VictimController : MonoBehaviour
     private Vector3 leftPos;
     private Vector3 rightPos;
 
+    private AudioSFXManager audioSFXManager;
+
+
     void Start()
     {
-      
+        GameObject audioObject = GameObject.FindWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioSFXManager = audioObject.GetComponent<AudioSFXManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
+        }
+
         victimSpawner = FindObjectOfType<VictimSpawner>();
     }
 
@@ -161,7 +173,8 @@ public class VictimController : MonoBehaviour
     {
         // Code to free the victim
         Debug.Log("Victim freed!");
-        GameStatController.Instance.DecreaseMorality(30); 
+        GameStatController.Instance.DecreaseMorality(30);
+        audioSFXManager.PlayMusicRevived(); 
         countdownText.text = ""; // Clear countdown display
         gameObject.SetActive(false); // Hides the victim, marking them as freed
 

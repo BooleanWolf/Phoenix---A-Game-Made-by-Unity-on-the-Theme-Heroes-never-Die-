@@ -26,7 +26,8 @@ public class PlayerProjectileController : MonoBehaviour
             // Implement damage logic here (e.g., reducing player's health)
             Debug.Log("Hit the Enemy!");
 
-            Destroy(collision.gameObject); 
+            Destroy(collision.gameObject);
+            GameStatController.Instance.DecreaseMorality(10); 
 
             Destroy(gameObject); // Destroy the projectile on hit
         }

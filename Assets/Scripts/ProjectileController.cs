@@ -7,8 +7,19 @@ public class Projectile : MonoBehaviour
     public float speed = 10f; // Speed of the projectile
     public float lifetime = 0.5f; // Time before the projectile is destroyed
 
+    private AudioSFXManager audioSFXManager;
+
     private void Start()
     {
+        GameObject audioObject = GameObject.FindWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioSFXManager = audioObject.GetComponent<AudioSFXManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
+        }
         // Destroy the projectile after a set lifetime
         Destroy(gameObject, lifetime);
     }
@@ -24,6 +35,7 @@ public class Projectile : MonoBehaviour
         {
             // Implement damage logic here (e.g., reducing player's health)
             Debug.Log("Hit the player!");
+            audioSFXManager.PlayMusicHurt();
 
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)

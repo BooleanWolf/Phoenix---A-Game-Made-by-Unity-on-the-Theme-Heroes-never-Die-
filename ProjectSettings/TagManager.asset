@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Bullet
   - PlayerBullet
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -57,11 +58,11 @@ TagManager:
   - name: Victims
     uniqueID: 1065072835
     locked: 0
-  - name: Bush
-    uniqueID: 4091042595
-    locked: 0
   - name: Teleports
     uniqueID: 728834337
+    locked: 0
+  - name: Bush
+    uniqueID: 4091042595
     locked: 0
   - name: Enemy
     uniqueID: 4025836279

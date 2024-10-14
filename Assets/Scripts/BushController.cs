@@ -6,10 +6,19 @@ public class BushController : MonoBehaviour
     public SpriteRenderer playerSprite;   // Reference to the player's SpriteRenderer component
     private Color originalColor;          // Store the player's original color
 
-
+    private AudioSFXManager audioSFXManager;
     public bool isHiding = false; 
     private void Start()
     {
+        GameObject audioObject = GameObject.FindWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioSFXManager = audioObject.GetComponent<AudioSFXManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
+        }
         // Save the original color of the player at the start
         if (playerSprite != null)
         {
@@ -25,6 +34,8 @@ public class BushController : MonoBehaviour
             playerAnimator.SetBool("isHiding", true);
             playerSprite.color = Color.gray;
             isHiding = true;
+            audioSFXManager.PlayMusicBush();
+
         }
     }
 
@@ -36,6 +47,7 @@ public class BushController : MonoBehaviour
             playerAnimator.SetBool("isHiding", false);
             playerSprite.color = originalColor;
             isHiding = false;
+            audioSFXManager.audioSource.Stop();
         }
     }
 }

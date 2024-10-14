@@ -18,8 +18,20 @@ public class PlayerController : MonoBehaviour
     public float projectileSpeed = 10f;
 
     public float projectileOffset = 1f;
+
+    private AudioSFXManager audioSFXManager;
     void Start()
     {
+        GameObject audioObject = GameObject.FindWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioSFXManager = audioObject.GetComponent<AudioSFXManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
+        }
+
         originalSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
@@ -93,6 +105,15 @@ public class PlayerController : MonoBehaviour
             isMoving=true;
         }
 
+        //if (isMoving)
+        //{
+        //    audioSFXManager.PlayMusicRun(); 
+        //}
+        //else
+        //{
+        //    audioSFXManager.audioSource.Stop();
+        //}
+
         // Normalize to prevent faster diagonal movement
         moveInput = moveInput.normalized;
         animator.SetFloat("moveX", moveInput.x);
@@ -116,6 +137,7 @@ public class PlayerController : MonoBehaviour
             // Set the projectile's rotation to face the mouse position
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            audioSFXManager.PlayMusicShoot(); 
 
             // Add a Rigidbody2D component to the projectile for movement
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
