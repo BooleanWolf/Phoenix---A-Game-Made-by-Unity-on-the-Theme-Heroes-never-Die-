@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4f67b60ab3efd946b86b2edc53e5281
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hero: {instanceID: 0}
+  - tilemapBush: {instanceID: 0}
+  - projectilePrefab: {fileID: 856016820273800010, guid: f1ad7ca1dedca8249a9bfab9529bb6f1, type: 3}
+  - firePoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
