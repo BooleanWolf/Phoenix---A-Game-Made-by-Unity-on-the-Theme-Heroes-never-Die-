@@ -57,7 +57,8 @@ public class VictimController : MonoBehaviour
         notSavedCounter += Time.deltaTime;
         //Debug.Log(notSavedCounter); 
 
-        remainingTimeText.text = "" + notSavedCounter.ToString("F0");
+        float rt = maxHoldTime - notSavedCounter; 
+        remainingTimeText.text = "" + rt.ToString("F0");
 
 
         if (notSavedCounter >= maxHoldTime)
@@ -89,7 +90,7 @@ public class VictimController : MonoBehaviour
             {
                 // Reset the hold counter if "H" is released
                 holdCounter = 0f;
-                countdownText.text = "Hold H to free her"; // Clear countdown display
+                countdownText.text = "Hold H to free him"; // Clear countdown display
             }
             else
             {
@@ -191,7 +192,8 @@ public class VictimController : MonoBehaviour
     private void NotSavedVictim()
     {
         // Code to handle victim not saved scenario
-        Debug.Log("Victim not saved in time!");
+        Debug.Log("Legend Not Saved in Time!");
+        audioSFXManager.PlayMusicNotSaved();     
         StartCoroutine(DisplayMessage());
         GameStatController.Instance.IncrementVictimsNotSaved();
 
@@ -211,7 +213,7 @@ public class VictimController : MonoBehaviour
     private IEnumerator DisplayMessage()
     {
         // Show the message
-        countdownText.text = "One mortal died! Hurry up!";
+        countdownText.text = "One Legend died! Hurry up!";
 
         // Wait for 2 seconds
         yield return new WaitForSeconds(1.5f);

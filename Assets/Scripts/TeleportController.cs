@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 public class TeleportController : MonoBehaviour
 {
     private bool isPlayerInTeleportZone = false;
-    public Text countDownText;
+  
 
     private AudioSFXManager audioSFXManager;
-    //private Coroutine fadeOutCoroutine;
+
+    public GameObject pressTbox; 
 
     private void Start()
     {
@@ -20,6 +23,8 @@ public class TeleportController : MonoBehaviour
         {
             Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
         }
+
+        pressTbox.SetActive(false);
     }
     private void Update()
     {
@@ -27,17 +32,16 @@ public class TeleportController : MonoBehaviour
         if (isPlayerInTeleportZone)
         {
            
-            Debug.Log(countDownText.text);  
+
+
             if (Input.GetKeyDown(KeyCode.T)) {
                 GameStatController.Instance.IncreaseMorality(30);
                 audioSFXManager.PlayMusicBlessing(); 
             }
+
             
         } 
-        else
-        {
-           
-        }
+
        
     }
 
@@ -48,8 +52,14 @@ public class TeleportController : MonoBehaviour
             Debug.Log("Hit it");
             // Set flag to true when player enters teleport zone
             isPlayerInTeleportZone = true;
+            pressTbox.SetActive(true);
+
+
         }
+
+
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -57,6 +67,8 @@ public class TeleportController : MonoBehaviour
         {
             // Reset flag when player leaves teleport zone
             isPlayerInTeleportZone = false;
+            pressTbox.SetActive(false);
+
         }
     }
 }

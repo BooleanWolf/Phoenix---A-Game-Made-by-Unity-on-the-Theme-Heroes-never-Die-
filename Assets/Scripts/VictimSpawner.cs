@@ -57,7 +57,7 @@ public class VictimSpawner : MonoBehaviour
     private System.Collections.IEnumerator RespawnDummyVictim()
     {
         isRespawning = true; // Set to true to prevent multiple respawns
-        cText.text = "There's another human in danger! Go save her!!";
+        cText.text = "Another Undead Legend is summoned in the realm. Find him and revive before he is sent to Spirit Realm.";
         // Wait for the respawn delay
         yield return new WaitForSeconds(respawnDelay);
 
@@ -74,7 +74,7 @@ public class VictimSpawner : MonoBehaviour
         {
             Destroy(currentDummyVictim); // Destroy the current victim
             currentDummyVictim = null;   // Clear the reference
-            cText.text = "You saved her!"; 
+            cText.text = "You saved him!"; 
         }
        
     }

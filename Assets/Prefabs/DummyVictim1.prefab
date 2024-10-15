@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.36, y: -2.97, z: 0}
-  m_LocalScale: {x: 3.137344, y: 3.137344, z: 3.137344}
+  m_LocalScale: {x: 5.01975, y: 5.01975, z: 5.01975}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 0}
   holdTime: 2
-  maxHoldTime: 20
+  maxHoldTime: 40
   notSavedCounter: 0
   remainingTimeText: {fileID: 0}
   player: {fileID: 0}
@@ -161,7 +161,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bd612d2c96c08434bbc8be05102a7eb6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 78d408ffd0d684f4a8f93a05e61677d0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -169,7 +169,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 97
+  Priority: 87
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 50

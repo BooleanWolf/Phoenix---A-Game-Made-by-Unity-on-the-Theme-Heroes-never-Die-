@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioSFXManager : MonoBehaviour
 {
-    public AudioClip blessing, die, hurt, revived, run, shoot, bush;
+    public AudioClip blessing, die, hurt, revived, run, shoot, bush, regen, enemy_die, not_saved;
     public AudioSource audioSource;
 
     void Start()
@@ -24,6 +24,7 @@ public class AudioSFXManager : MonoBehaviour
     {
         audioSource.clip = blessing;
         audioSource.loop = false;
+        audioSource.volume = 0.65f;
         audioSource.Play();
     }
 
@@ -31,6 +32,7 @@ public class AudioSFXManager : MonoBehaviour
     public void PlayMusicDie()
     {
         audioSource.clip = die;
+        audioSource.volume = 1f;
         audioSource.loop = false;
         audioSource.Play();
     }
@@ -39,6 +41,7 @@ public class AudioSFXManager : MonoBehaviour
     public void PlayMusicHurt()
     {
         audioSource.clip = hurt;
+        audioSource.volume = 0.6f;
         audioSource.loop = false;
         audioSource.Play();
     }
@@ -48,6 +51,7 @@ public class AudioSFXManager : MonoBehaviour
     {
         audioSource.clip = revived;
         audioSource.loop = false;
+        audioSource.volume = 0.6f;
         audioSource.Play();
     }
 
@@ -63,7 +67,8 @@ public class AudioSFXManager : MonoBehaviour
     public void PlayMusicShoot()
     {
         audioSource.clip = shoot;
-        audioSource.loop = false; 
+        audioSource.loop = false;
+        audioSource.volume = 0.4f; 
         audioSource.Play();
     }
 
@@ -71,6 +76,31 @@ public class AudioSFXManager : MonoBehaviour
     {
         audioSource.clip = bush;
         audioSource.loop = true;
+        audioSource.volume = 0.4f; 
+        audioSource.Play();
+    }
+
+    public void PlayMusicRegen()
+    {
+        
+        audioSource.loop = false;
+        audioSource.volume = 1f;
+        audioSource.PlayOneShot(regen);
+    }
+
+    public void PlayMusicEnemyDie()
+    {
+        audioSource.clip = enemy_die;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
+        audioSource.Play(); 
+    }
+
+    public void PlayMusicNotSaved()
+    {
+        audioSource.clip = not_saved;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
         audioSource.Play();
     }
 }

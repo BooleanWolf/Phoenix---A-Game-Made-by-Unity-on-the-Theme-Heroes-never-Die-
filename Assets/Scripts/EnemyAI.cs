@@ -18,10 +18,22 @@ public class EnemyAI : MonoBehaviour
     public float fireRate = 1.5f;          // Time between shots
 
     private float nextFireTime = 0f;    // Timer for firing projectiles
+
+    private AudioSFXManager audioSFXManager;
     private void Start()
     {
         hero = GameObject.Find("Hero"); // Assumes the hero GameObject is named "Hero"
         tilemapBush = GameObject.Find("Tilemap_Bushes"); // Assumes the tilemap is named "TilemapBush"
+        GameObject audioObject = GameObject.FindWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioSFXManager = audioObject.GetComponent<AudioSFXManager>();
+        }
+        else
+        {
+            Debug.LogWarning("Audio GameObject with tag 'audio' not found!");
+        }
+
 
         // Initialize firePoint if it's not set in the Inspector
         if (firePoint == null)
@@ -57,6 +69,10 @@ public class EnemyAI : MonoBehaviour
             // Set the rotation only along the Z-axis to face the hero
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+        else
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
 
         // Check if the enemy can shoot
         if (distanceToHero <= shootRange && Time.time >= nextFireTime && !bushController.isHiding)
@@ -91,6 +107,8 @@ public class EnemyAI : MonoBehaviour
         {
             // Implement damage logic here (e.g., reducing player's health)
             Debug.Log("Hit the player!");
+
+            audioSFXManager.PlayMusicHurt(); 
 
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)

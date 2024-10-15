@@ -7,6 +7,10 @@ public class GameStatUIManager : MonoBehaviour
     public Text vNotSavedText;   // Reference to the UI Text element for victims not saved
     public Text moralityText;     // Reference to the UI Text element for player morality
     public Text countdownText; 
+    public Text healthText;
+    public Text regenBox;
+
+
 
     public GameObject textBoxHolder;
     private void Start()
@@ -30,6 +34,8 @@ public class GameStatUIManager : MonoBehaviour
         vSavedText.text = "" + GameStatController.Instance.victimsSaved;
         vNotSavedText.text = "" + GameStatController.Instance.victimsNotSaved;
         moralityText.text = "" + GameStatController.Instance.playersMoral;
+        healthText.text = "" + GameStatController.Instance.health;
+        regenBox.text  =  "" + GameStatController.Instance.playerRegen;
         
     }
 }

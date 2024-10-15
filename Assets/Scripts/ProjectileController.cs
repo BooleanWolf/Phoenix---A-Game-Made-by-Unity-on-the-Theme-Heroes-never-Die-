@@ -45,10 +45,6 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject); // Destroy the projectile on hit
         }
-        else
-        {
-            // Destroy the projectile on any other collision
-            Destroy(gameObject);
-        }
+       
     }
 }

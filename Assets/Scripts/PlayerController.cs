@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyEnemyFreeze()
     {
+        GameStatController.Instance.decrease_health(40);
         if (!isSlowed)
         {
             Debug.Log("FREEZED");
             isSlowed = true; // Set the slowed state
             moveSpeed = 0f; // Reduce speed by the percentage
+            
             StartCoroutine(RemoveSlowdown());
         }
     }
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplySlowdown(float percentage)
     {
+        GameStatController.Instance.decrease_health(15);
         if (!isSlowed)
         {
             Debug.Log("SLOWED"); 
@@ -154,4 +157,6 @@ public class PlayerController : MonoBehaviour
         // Apply movement based on input
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
     }
+
+   
 }
