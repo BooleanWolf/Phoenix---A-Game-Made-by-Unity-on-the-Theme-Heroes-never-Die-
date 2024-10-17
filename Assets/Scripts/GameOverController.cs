@@ -19,6 +19,6 @@ public class GameOverController : MonoBehaviour
 
     public void onCliclPlayAgainButton()
     {
-        SceneManager.LoadScene("AlphaWorld");
+        SceneManager.LoadScene("MainMenu");
     }
 }

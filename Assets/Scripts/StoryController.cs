@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class StoryController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -14,5 +14,10 @@ public class StoryController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void onSkipButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu"); 
     }
 }

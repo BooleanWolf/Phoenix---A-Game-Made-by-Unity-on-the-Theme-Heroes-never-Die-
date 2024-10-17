@@ -57,7 +57,7 @@ public class VictimSpawner : MonoBehaviour
     private System.Collections.IEnumerator RespawnDummyVictim()
     {
         isRespawning = true; // Set to true to prevent multiple respawns
-        cText.text = "Another Undead Legend is summoned in the realm. Find him and revive before he is sent to Spirit Realm.";
+        cText.text = "Go Find Another. Follow the direction and distance!";
         // Wait for the respawn delay
         yield return new WaitForSeconds(respawnDelay);
 

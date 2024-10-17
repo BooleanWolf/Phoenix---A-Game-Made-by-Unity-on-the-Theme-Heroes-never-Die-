@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplyEnemyFreeze()
     {
-        GameStatController.Instance.decrease_health(40);
+        GameStatController.Instance.decrease_health(60);
         if (!isSlowed)
         {
             Debug.Log("FREEZED");
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     public void ApplySlowdown(float percentage)
     {
-        GameStatController.Instance.decrease_health(15);
+        GameStatController.Instance.decrease_health(30);
         if (!isSlowed)
         {
             Debug.Log("SLOWED"); 
@@ -94,6 +95,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Load the main menu scene (assuming it's named "MainMenu")
+            SceneManager.LoadScene("MainMenu");
+        }
 
         // Capture movement input
         moveInput.x = Input.GetAxisRaw("Horizontal");

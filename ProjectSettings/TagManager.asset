@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - PlayerBullet
   - Audio
+  - OtherMe
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Enemies
   - Projectile
   - PlayerProjectile
-  - 
+  - OtherMe
   - 
   - 
   - 

@@ -126,16 +126,12 @@ public class GameStatController : MonoBehaviour
             Vector3 offsetPosition = player.transform.position + new Vector3(4f, 0, 0);
             GameObject otherMe = Instantiate(otherMePrefab, offsetPosition, Quaternion.identity);
 
-            if(GameStatController.Instance.playerRegen <= 5)
+            if(GameStatController.Instance.playerRegen <= 7)
             {
-                otherMe.transform.localScale = player.transform.localScale * 0.80f; // Scale it to half the player's size
-                player.transform.localScale *= 0.80f;
+                otherMe.transform.localScale = player.transform.localScale * 0.95f; // Scale it to half the player's size
+                player.transform.localScale *= 0.95f;
             }
-            else
-            {
-                otherMe.transform.localScale = player.transform.localScale * 0.20f; // Scale it to half the player's size
-                player.transform.localScale *= 0.20f;
-            }
+           
            
             Debug.Log("Spawned OtherMePrefab at half size");
          
@@ -192,6 +188,8 @@ public class GameStatController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+
 
     // You can add other game statistics methods as needed
 }

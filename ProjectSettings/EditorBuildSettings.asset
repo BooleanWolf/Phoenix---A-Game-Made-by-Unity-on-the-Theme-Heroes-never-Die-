@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlphaWorld.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/BetaWorld.unity
-    guid: 004ead14ba4880c4386aa2a0bc880eb1
   - enabled: 1
     path: Assets/Scenes/Help.unity
     guid: 800f61e6c3f28c546aca2b81269e5af7
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 9eae5bf7e6cf70e469f8dfc665e3abd1
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: 5c49c9831a525824682e989cbb914445
   m_configObjects: {}

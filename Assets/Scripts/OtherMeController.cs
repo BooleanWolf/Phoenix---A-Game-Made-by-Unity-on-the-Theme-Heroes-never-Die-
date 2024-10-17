@@ -64,7 +64,7 @@ public class OtherMeController : MonoBehaviour
         if (player != null)
         {
             audioSFXManager.PlayMusicHurt(); 
-            GameStatController.Instance.decrease_health(20);
+            GameStatController.Instance.decrease_health(60);
         }
     }
 }
